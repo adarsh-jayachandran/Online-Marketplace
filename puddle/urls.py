@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from core.views import index,contact
+from django.conf import settings # for image 
+from django.conf.urls.static import static # for image 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('contact/',contact, name = 'contact'),
     path('', index,name='index')
-]
+] 
+# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # for images
